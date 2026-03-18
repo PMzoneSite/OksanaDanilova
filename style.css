@@ -1,0 +1,501 @@
+:root {
+    --bg-dark: #0f0c0e;
+    --bg-light: #faf7f5;
+    --primary: #b3866b;
+    --primary-light: #d9b8a8;
+    --primary-dark: #8b5e4b;
+    --text-dark: #1e1b1a;
+    --text-soft: #4a413c;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    --shadow-hover: 0 30px 60px -12px rgba(0, 0, 0, 0.2);
+    --glow-color: rgba(179, 134, 107, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.5;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Анимированный градиентный фон */
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 0% 0%, rgba(179, 134, 107, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(179, 134, 107, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    animation: gradientMove 20s ease infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Шапка профиля */
+.profile-section {
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.photo-frame {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%;
+    box-shadow: 0 10px 30px -10px var(--primary-dark);
+}
+
+/* ИСПРАВЛЕНО: стили для фото */
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* Это важно! фото не растянется */
+    display: block; /* Убирает лишние отступы */
+    border: 3px solid white;
+}
+
+.profile-section h1 {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--text-dark), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.badge-wrapper {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.year-badge {
+    padding: 4px 12px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    font-size: 14px;
+    color: var(--text-soft);
+    border: 1px solid var(--glass-border);
+}
+
+.specialization {
+    font-size: 18px;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--primary);
+    font-style: italic;
+}
+
+/* Быстрые действия */
+.quick-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    font-size: 16px;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.action-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px var(--primary);
+    border-color: var(--primary);
+}
+
+/* Сетка услуг */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+.service-card {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, var(--glow-color), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.service-card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-content {
+    position: relative;
+    padding: 28px;
+    z-index: 1;
+}
+
+.card-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.service-card p {
+    color: var(--text-soft);
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.chip {
+    padding: 4px 12px;
+    background: rgba(179, 134, 107, 0.1);
+    border-radius: 40px;
+    font-size: 12px;
+    color: var(--primary);
+}
+
+/* О себе (аккордеон) */
+.about-section {
+    margin-bottom: 32px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+}
+
+.about-trigger {
+    width: 100%;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.about-trigger:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.about-trigger svg {
+    transition: transform 0.3s ease;
+}
+
+.about-trigger.active svg {
+    transform: rotate(180deg);
+}
+
+.about-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.about-content.open {
+    max-height: 300px;
+}
+
+.about-text {
+    padding: 0 24px 24px 24px;
+    color: var(--text-soft);
+}
+
+.about-text p {
+    margin-bottom: 12px;
+}
+
+/* Ресурсы */
+.resources {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.resource-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+    background: white;
+    border-color: var(--primary);
+    transform: translateX(6px);
+}
+
+/* Основная кнопка */
+.primary-button {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px -10px var(--primary-dark);
+    margin-bottom: 24px;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -10px var(--primary-dark);
+    filter: brightness(1.05);
+}
+
+.primary-button svg {
+    transition: transform 0.3s ease;
+}
+
+.primary-button:hover svg {
+    transform: translateX(6px);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 48px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.modal-content h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-btn {
+    padding: 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    background: var(--bg-light);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn.telegram:hover {
+    background: #0088cc;
+    color: white;
+    border-color: #0088cc;
+}
+
+.modal-btn.whatsapp:hover {
+    background: #25D366;
+    color: white;
+    border-color: #25D366;
+}
+
+.modal-btn.phone:hover {
+    background: var(--text-dark);
+    color: white;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-light);
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: var(--primary-light);
+    transform: rotate(90deg);
+}
+
+.footer {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-soft);
+    opacity: 0.7;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .profile-section h1 {
+        font-size: 36px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card h3 {
+        font-size: 22px;
+    }
+    
+    .price {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 16px;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        justify-content: center;
+    }
+}
