@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оксана Данилова | Психолог</title>
+    <title>Оксана Данилова | Кризисный психолог, семейный терапевт</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
@@ -22,51 +22,81 @@
             </div>
             
             <h1>Оксана Данилова</h1>
-            
-            <p class="specialization">Клинический психолог · Семейный терапевт</p>
-            <p class="tagline">Создаю пространство, где вы можете быть собой</p>
+            <div class="badge-wrapper">
+                <span class="year-badge">Кризисный психолог</span>
+                <span class="year-badge">Семейный терапевт</span>
+            </div>
+            <p class="specialization">Клинический психолог · Работа с травмой и тревожными расстройствами</p>
+            <p class="tagline">Из этого можно выйти. Я знаю, каково это — когда рушится мир.</p>
         </div>
 
-        <!-- Быстрые действия -->
+        <!-- Контакты -->
         <div class="quick-actions">
-            <button class="action-btn" data-action="telegram">
+            <a href="https://t.me/kpsi_da" target="_blank" class="action-btn" data-action="telegram">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
                 </svg>
                 <span>Telegram</span>
-            </button>
-            <button class="action-btn" data-action="whatsapp">
+            </a>
+            <a href="tel:+79960193212" class="action-btn" data-action="phone">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
-                <span>WhatsApp</span>
-            </button>
+                <span>+7 996 019-32-12</span>
+            </a>
         </div>
 
-        <!-- Основные карточки услуг -->
-        <div class="services-grid">
-            <div class="service-card" data-card="consult">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <span class="card-label">Первичная встреча</span>
-                    <h3>Знакомство и диагностика</h3>
-                    <p>50 мин · определение запроса и стратегии работы</p>
-                    <div class="card-footer">
-                        <span class="price">3 500 ₽</span>
-                        <span class="chip">доступно онлайн</span>
+        <!-- Чем я могу помочь? -->
+        <div class="hero-text">
+            <p>Я практикующий психолог. Я знаю, каково это — когда рушится мир, когда больно, стыдно и непонятно, как жить дальше. Мой собственный опыт прохождения сложных кризисов научил меня одному: <strong>из этого можно выйти</strong>. И раз Вы на моей страничке, значит наша встреча не случайна.</p>
+            <p class="mission">Моя задача — помочь вам справиться с тяжелыми отношениями (или их последствиями) и <strong>вернуть себе себя</strong>.</p>
+        </div>
+
+        <!-- С чем я работаю (аккордеон) -->
+        <div class="about-section">
+            <button class="about-trigger" id="workToggle">
+                <span>С чем я работаю</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </button>
+            <div class="about-content" id="workContent">
+                <div class="work-list">
+                    <div class="work-category">
+                        <h4>1. Травма отношений</h4>
+                        <p><strong>Нарциссический абьюз:</strong> Помогаю распознать, что происходит, когда вы уже чувствуете усталость, стыд, тревогу и потерю себя. Разбор циклов идеализация-обесценивание, восстановление связи с реальностью, безопасное планирование разрыва.</p>
+                        <p><strong>Восстановление после отношений с нарциссом:</strong> Понимание механизмов травматической привязанности, возвращение контакта с чувствами, выход из стыда и самобвинения.</p>
+                        <p><strong>Развод. Измена. Кризис семейных отношений:</strong> Безопасное проживание боли и гнева, принятие факта завершения, переход от «мы» к «я».</p>
+                    </div>
+                    <div class="work-category">
+                        <h4>2. Зависимые и созависимые отношения</h4>
+                        <p><strong>Я зависим(а) от партнера:</strong> Различение любви и зависимости, возвращение границ, работа со страхом одиночества.</p>
+                        <p><strong>Мой партнер употребляет химические вещества:</strong> Принятие собственного бессилия, отделение ответственности, выстраивание границ в хаосе.</p>
+                    </div>
+                    <div class="work-category">
+                        <h4>3. Стили привязанности и личная устойчивость</h4>
+                        <p><strong>Мой партнер избегающий:</strong> Понимание динамики «тревожный-избегающий», выход из порочного круга, как оставаться в контакте без самоотмены.</p>
+                        <p><strong>У меня тревожная привязанность:</strong> Развитие внутренней опоры, работа со страхом отвержения, формирование устойчивых отношений.</p>
+                    </div>
+                    <div class="work-category">
+                        <h4>4. Карьера и внутренняя динамика</h4>
+                        <p><strong>Вопросы карьеры и прокрастинации:</strong> Разбор механизмов прокрастинации, отделение своих желаний от навязанных, работа со страхом оценки и внутренним критиком, восстановление способности действовать.</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="service-card" data-card="therapy">
+        <!-- Цены и услуги -->
+        <div class="services-grid">
+            <div class="service-card" data-card="individual">
                 <div class="card-glow"></div>
                 <div class="card-content">
-                    <span class="card-label">Терапия</span>
-                    <h3>Индивидуальные сессии</h3>
-                    <p>60/90 мин · регулярная работа над запросом</p>
+                    <span class="card-label">Индивидуальная сессия</span>
+                    <h3>Личная терапия</h3>
+                    <p>60 минут · работа с вашим запросом</p>
                     <div class="card-footer">
-                        <span class="price">5 500 / 7 500 ₽</span>
-                        <span class="chip">очно / онлайн</span>
+                        <span class="price">3 000 ₽</span>
+                        <span class="chip">онлайн / очно</span>
                     </div>
                 </div>
             </div>
@@ -74,65 +104,99 @@
             <div class="service-card" data-card="family">
                 <div class="card-glow"></div>
                 <div class="card-content">
-                    <span class="card-label">Для пар и семей</span>
-                    <h3>Семейная терапия</h3>
-                    <p>80 мин · работа с отношениями</p>
+                    <span class="card-label">Семейная терапия</span>
+                    <h3>Для пар и семей</h3>
+                    <p>90 минут · работа с отношениями</p>
                     <div class="card-footer">
-                        <span class="price">8 000 ₽</span>
-                        <span class="chip">парная</span>
+                        <span class="price">6 000 ₽</span>
+                        <span class="chip">90 мин</span>
                     </div>
                 </div>
             </div>
 
-            <div class="service-card" data-card="intensive">
+            <div class="service-card" data-card="package">
                 <div class="card-glow"></div>
                 <div class="card-content">
-                    <span class="card-label">Интенсив</span>
-                    <h3>Месяц сопровождения</h3>
-                    <p>4 встречи · поддержка 24/7 в чате</p>
+                    <span class="card-label">Пакет сессий</span>
+                    <h3>10 индивидуальных сессий</h3>
+                    <p>Глубокая проработка запроса</p>
                     <div class="card-footer">
-                        <span class="price">28 000 ₽</span>
-                        <span class="chip">личный кабинет</span>
+                        <span class="price">27 000 ₽</span>
+                        <span class="chip">100% предоплата</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- О себе (аккордеон) -->
+        <!-- Обо мне + Образование -->
         <div class="about-section">
             <button class="about-trigger" id="aboutToggle">
-                <span>Об Оксане</span>
+                <span>Образование и опыт</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"/>
                 </svg>
             </button>
             <div class="about-content" id="aboutContent">
                 <div class="about-text">
-                    <p>Клинический психолог, выпускница МГУ (2018). Специализация — работа с травмой и тревожными расстройствами.</p>
-                    <p>➜ 2024: дополнительное образование по EMDR терапии<br>
-                    ➜ 2025: сертификация по схема-терапии<br>
-                    ➜ 2026: авторский курс по работе с выгоранием</p>
-                    <p>В терапии 8 лет, 2000+ часов личной терапии и супервизий. Работаю в интегративном подходе.</p>
+                    <p><strong>Кризисный психолог.</strong> Специализация: работа с травмой и тревожными расстройствами (Институт психологии).</p>
+                    <p><strong>Дополнительное образование:</strong></p>
+                    <ul>
+                        <li>Когнитивно-поведенческая терапия (Институт психотерапии и медицинской психологии им БД Карвасарского)</li>
+                        <li>Сексология (Институт психотерапии и медицинской психологии им БД Карвасарского)</li>
+                        <li>Эмоционально-образная терапия при работе с травмой (Институт психологии)</li>
+                        <li>Семейно-системная терапия пар (Институт психологии)</li>
+                        <li>Клинический психолог (Московский Международный Университет)</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Ссылки на ресурсы -->
-        <div class="resources">
-            <a href="#" class="resource-link">
-                <span>📝 Telegram канал «Терапия 2026»</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-            <a href="#" class="resource-link">
-                <span>📷 Instagram</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+       <!-- Ресурсы и соцсети -->
+<div class="resources">
+    <a href="https://vk.com/id449852655" target="_blank" class="resource-link">
+        <div class="resource-icon">
             
+            <img src="vk-com.jpg" alt="VK" class="icon-img">
         </div>
+        <span>ВКонтакте</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+    </a>
+    
+    <a href="https://www.b17.ru/id415774/#article" target="_blank" class="resource-link">
+        <div class="resource-icon">
+
+            <img src="b17.png" alt="b17" class="icon-img">
+        </div>
+        <span>Статьи на b17 — Данилова Оксана Сергеевна</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+    </a>
+    
+    <a href="https://t.me/kpsi_da" target="_blank" class="resource-link">
+        <div class="resource-icon">
+     
+            <img src="tg.png" alt="Telegram" class="icon-img">
+        </div>
+        <span>Telegram канал</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+    </a>
+    
+    <a href="https://max.ru/id524925813205_biz" target="_blank" class="resource-link">
+        <div class="resource-icon">
+          
+            <img src="max.jpg" alt="MAX" class="icon-img">
+        </div>
+        <span>MAX</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+    </a>
+</div>
 
         <!-- Запись -->
         <button class="primary-button" id="appointmentBtn">
@@ -143,18 +207,18 @@
         </button>
 
         <div class="footer">
-            <p>Оксана Данилова © 2026 </p>
+            <p>Оксана Данилова © 2026 · Кризисный психолог, семейный терапевт</p>
         </div>
     </div>
 
-    <!-- Модальное окно записи (просто демо) -->
+    <!-- Модальное окно записи -->
     <div class="modal" id="appointmentModal">
         <div class="modal-content">
-            <h3>Выберите способ связи</h3>
+            <h3>Свяжитесь со мной</h3>
             <div class="modal-actions">
-                <button class="modal-btn telegram">Telegram</button>
-                <button class="modal-btn whatsapp">WhatsApp</button>
-                <button class="modal-btn phone">Позвонить</button>
+                <a href="https://t.me/kpsi_da" target="_blank" class="modal-btn telegram">Telegram</a>
+                <a href="tel:+79960193212" class="modal-btn phone">Позвонить +7 996 019-32-12</a>
+                <a href="https://vk.com/id449852655" target="_blank" class="modal-btn vk">ВКонтакте</a>
             </div>
             <button class="close-modal" id="closeModal">✕</button>
         </div>

@@ -1,5 +1,3 @@
-// Современный интерактив для 2026 года
-
 class PsychologistSite {
     constructor() {
         this.init();
@@ -13,23 +11,25 @@ class PsychologistSite {
     }
 
     cacheElements() {
-        // Основные элементы
         this.aboutToggle = document.getElementById('aboutToggle');
+        this.workToggle = document.getElementById('workToggle');
         this.aboutContent = document.getElementById('aboutContent');
+        this.workContent = document.getElementById('workContent');
         this.appointmentBtn = document.getElementById('appointmentBtn');
         this.modal = document.getElementById('appointmentModal');
         this.closeModal = document.getElementById('closeModal');
         this.serviceCards = document.querySelectorAll('.service-card');
-        this.actionBtns = document.querySelectorAll('.action-btn');
-        
-        // Текущий год
-        this.currentYear = new Date().getFullYear();
     }
 
     bindEvents() {
-        // Аккордеон "Об Оксане"
-        if (this.aboutToggle) {
-            this.aboutToggle.addEventListener('click', () => this.toggleAbout());
+        // Аккордеон "Образование"
+        if (this.aboutToggle && this.aboutContent) {
+            this.aboutToggle.addEventListener('click', () => this.toggleSection(this.aboutToggle, this.aboutContent));
+        }
+
+        // Аккордеон "С чем я работаю"
+        if (this.workToggle && this.workContent) {
+            this.workToggle.addEventListener('click', () => this.toggleSection(this.workToggle, this.workContent));
         }
 
         // Модальное окно записи
@@ -41,34 +41,27 @@ class PsychologistSite {
             this.closeModal.addEventListener('click', () => this.closeModalWindow());
         }
 
-        // Закрытие модалки по клику вне
         window.addEventListener('click', (e) => {
             if (e.target === this.modal) {
                 this.closeModalWindow();
             }
         });
 
-        // Быстрые действия
-        this.actionBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleQuickAction(e));
-        });
-
         // Карточки услуг
         this.serviceCards.forEach(card => {
             card.addEventListener('click', () => this.handleServiceCard(card));
             card.addEventListener('mousemove', (e) => this.handleCardGlow(e, card));
-            card.addEventListener('mouseleave', (e) => this.resetCardGlow(card));
+            card.addEventListener('mouseleave', () => this.resetCardGlow(card));
         });
     }
 
-    toggleAbout() {
-        this.aboutToggle.classList.toggle('active');
-        this.aboutContent.classList.toggle('open');
+    toggleSection(toggle, content) {
+        toggle.classList.toggle('active');
+        content.classList.toggle('open');
         
-        // Плавное изменение иконки
-        const icon = this.aboutToggle.querySelector('svg');
+        const icon = toggle.querySelector('svg');
         if (icon) {
-            icon.style.transform = this.aboutContent.classList.contains('open') 
+            icon.style.transform = content.classList.contains('open') 
                 ? 'rotate(180deg)' 
                 : 'rotate(0deg)';
         }
@@ -77,9 +70,6 @@ class PsychologistSite {
     openModal() {
         this.modal.classList.add('show');
         document.body.style.overflow = 'hidden';
-        
-        // Анимация цифр (фишка 2026)
-        this.animateCounter();
     }
 
     closeModalWindow() {
@@ -87,22 +77,10 @@ class PsychologistSite {
         document.body.style.overflow = '';
     }
 
-    handleQuickAction(event) {
-        const action = event.currentTarget.dataset.action;
-        const actionText = event.currentTarget.querySelector('span').textContent;
-        
-        // Создаем всплывающее уведомление
-        this.showToast(`Открываю ${actionText}...`);
-        
-        // Здесь можно добавить реальную логику открытия мессенджеров
-        console.log(`Quick action: ${action}`);
-    }
-
     handleServiceCard(card) {
         const title = card.querySelector('h3')?.textContent;
         this.showToast(`Выбрано: ${title}`);
         
-        // Эффект нажатия
         card.style.transform = 'scale(0.98)';
         setTimeout(() => {
             card.style.transform = '';
@@ -128,7 +106,6 @@ class PsychologistSite {
     }
 
     animateOnScroll() {
-        // Простая анимация появления при скролле
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -138,7 +115,7 @@ class PsychologistSite {
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.service-card, .resource-link').forEach(el => {
+        document.querySelectorAll('.service-card, .resource-link, .hero-text').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -147,7 +124,6 @@ class PsychologistSite {
     }
 
     setupMicroInteractions() {
-        // Добавляем параллакс эффект на фото
         const photoFrame = document.querySelector('.photo-frame');
         if (photoFrame) {
             document.addEventListener('mousemove', (e) => {
@@ -156,14 +132,9 @@ class PsychologistSite {
                 photoFrame.style.transform = `translate(${x}px, ${y}px)`;
             });
         }
-
-        // Подсвечиваем год
-        const yearBadges = document.querySelectorAll('.year-badge');
-        yearBadges[1]?.classList.add('current-year');
     }
 
     showToast(message) {
-        // Создаем временное уведомление
         const toast = document.createElement('div');
         toast.textContent = message;
         toast.style.cssText = `
@@ -188,30 +159,12 @@ class PsychologistSite {
             setTimeout(() => toast.remove(), 300);
         }, 2000);
     }
-
-    animateCounter() {
-        // Эффект счетчика для 2026 года
-        const year = document.querySelector('.year-badge:last-child');
-        if (year && !year.classList.contains('animated')) {
-            let count = 2020;
-            const interval = setInterval(() => {
-                year.textContent = count;
-                count++;
-                if (count > 2026) {
-                    clearInterval(interval);
-                    year.classList.add('animated');
-                }
-            }, 50);
-        }
-    }
 }
 
-// Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     new PsychologistSite();
 });
 
-// Добавляем ключевые кадры для анимаций
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideUp {
@@ -221,12 +174,6 @@ style.textContent = `
     
     @keyframes fadeOut {
         to { opacity: 0; }
-    }
-    
-    .current-year {
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        color: white;
-        font-weight: 600;
     }
 `;
 document.head.appendChild(style);
