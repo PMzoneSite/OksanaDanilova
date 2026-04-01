@@ -332,7 +332,7 @@ body {
 }
 
 .about-content.open {
-    max-height: 800px;
+    max-height: 100%;
 }
 
 .about-text {
@@ -522,6 +522,11 @@ body {
     color: white;
     border-color: #0077ff;
 }
+.modal-btn.max:hover {
+    background: #8533f1;
+    color: white;
+    border-color: #8533f1;
+}
 
 .close-modal {
     position: absolute;
@@ -638,4 +643,7 @@ body {
 .resource-link:hover svg:last-child {
     opacity: 1;
     color: var(--primary);
+}
+.ul-padding{
+    padding-left: 5%;
 }
