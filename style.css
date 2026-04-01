@@ -375,6 +375,53 @@ body {
     font-size: 14px;
     line-height: 1.5;
 }
+.work-category ul {
+    margin: 8px 0 16px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.work-category ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.work-category ul li::before {
+    content: "◆";
+    color: var(--primary);
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.about-text ul {
+    margin: 8px 0 16px 20px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.about-text ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.about-text ul li::before {
+    content: "◆";
+    color: var(--primary);
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
 /* Ресурсы */
 .resources {
